@@ -27,57 +27,68 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <div class="container">
+    
+
+
+    <!-- <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li><a href="#">About</a></li>
         </ul>
-        <h3 class="text-muted">Webdev checklist</h3>
+        <p class="lead">Project checklist</p>
       </div>
+    </div> -->
 
-      <div id="app">
-
-        <div class="jumbotron">
-          <h2>Check, Check..</h2>
-          <p class="lead">Webdesigner checklist with persistant storage</p>
-          <button class="btn btn-lg btn-success" v-on:click="resetChecked">Reset</button>
-        </div>
-        
-        <div class="todolist">
-
-          <ul class="list-unstyled">
-            <li class="ui-state-default">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" id="jack" value="Jack" v-model="completed">Jack
-                </label>
-              </div>
-            </li>
-            <li class="ui-state-default">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" id="john" value="John" v-model="completed">John
-                </label>
-              </div>
-            </li>
-            <li class="ui-state-default">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" id="mike" value="Mike" v-model="completed">Mike
-                </label>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer">
-          <p>♥ from Adam</p>
-          <p><span>Checked names: {{ completed | json }}</span></p>
-        </div>
-        
-      </div>
+      <div class="container">
       
-    </div>
+        <div id="app">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2>Project checklist</h2>
+            <p class="lead">Webdesigner checklist with persistant storage</p>
+          </div>
+          <div class="panel-body">
+
+            <h4 class="section-heading">Section Title</h4>
+            <hr>
+
+            <ul class="list-unstyled">
+              <li class="ui-state-default">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="jack" value="Jack" v-model="completed">Spelling checked
+                  </label>
+                </div>
+              </li>
+              <li class="ui-state-default">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="john" value="John" v-model="completed">Placeholder content removed
+                  </label>
+                </div>
+              </li>
+              <li class="ui-state-default">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="mike" value="Mike" v-model="completed">Contact Details correct
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer clearfix">
+            <span class="pull-left">♥ from Adam</span>
+            <button class="btn btn-sm btn-default pull-right" v-on:click="resetChecked">Reset</button>
+          </div>
+        </div>
+
+        </div><!-- /#app -->
+
+      </div><!-- /.container -->
+
+      
+
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
