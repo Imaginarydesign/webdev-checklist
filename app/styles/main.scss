@@ -28,6 +28,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #B5BABC;
 }
 
+.section-heading {
+  margin-left: -25px;
+  padding-left: 25px;
+  margin-right: -25px;
+  padding-right: 25px;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
 .panel {
   border: none;
 }
@@ -36,9 +46,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .panel-heading {
   padding: 10px 25px;
+  h2 {
+    color: #00C58D;  
+  }
 }
-.panel-body, .panel-footer {
-  padding: 10px 25px;
+.panel-body {
+  padding: 0 25px;
+}
+.panel-footer {
+  padding-top: 10px; 
 }
 .btn-default {
   background-color: transparent;
@@ -48,6 +64,18 @@ li.ui-state-default {
   background: #fff;
   border: none;
   border-bottom: 1px solid #eeeeee;
+  margin-left: -25px;
+  padding-left: 25px;
+  margin-right: -25px;
+  padding-right: 25px;
+}
+
+.panel-section:last-child li:last-of-type {
+  border-bottom: none;
+}
+
+.collapsing {
+  margin-top: -10px;
 }
 
 .browserupgrade {
@@ -60,7 +88,29 @@ li.ui-state-default {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 550px;
   }
+}
+
+// Section tools 
+.btn {
+  border-radius: 3px;
+  box-shadow: none;
+  border: 1px solid transparent;
+}
+.btn-box-tool {
+  padding: 5px;
+  font-size: 12px;
+  background: transparent;
+  box-shadow: none !important;
+  color: #97a0b3;
+}
+.btn:focus {
+  outline: none !important;
+}
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
 }
 
