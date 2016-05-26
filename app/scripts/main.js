@@ -35,7 +35,6 @@ new Vue({
         return tasks.done;
       });
     }
-
   },
 
   methods: {
