@@ -53,7 +53,10 @@ new Vue({
   },
 
   ready: function() {
-    this.tasks = this.completed;
+    if (this.completed.length) {
+      this.tasks = this.completed;
+    }
+    
   }
 
 });
