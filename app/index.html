@@ -36,28 +36,20 @@
           <div class="panel-heading">
             <h2>Project checklist</h2>
             <p class="lead">Webdesigner checklist with persistant storage</p>
+            <p>Remaining {{ remaining.length }}, Done {{ done.length }}</p>
           </div>
 
           <div class="panel-body">
-            <div class="panel-section" v-for="task in tasks">
-              <h4 class="section-heading" >{{ task.section }}
-                <div class="pull-right box-tools">
-                  <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+            <ul class="list-unstyled" id="collapse-{{ $index }}">
+              <li class="ui-state-default" v-for="task in tasks">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" v-model="task.done">{{ task.name }}
+                  </label>
                 </div>
-              </h4>
-              <ul class="list-unstyled panel-collapse collapse" id="collapse-{{ $index }}">
-                <li class="ui-state-default" v-for="item in task.items">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" id="{{ item.id }}" value="{{ item.name }}" v-model="completed">{{ item.name }}
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
+              </li>
+            </ul>
           </div>
-
-          {{ remaining.length }}
 
           <div class="panel-footer clearfix">
             <span class="pull-left text-muted">♥ from <a href="http://imaginarydesign.co.uk/" target="_blank">Adam</a></span>

@@ -1,64 +1,60 @@
 Vue.config.debug = true;
 
-function fetchChecked(key){
-  if(localStorage.getItem(key)){
-    return JSON.parse(localStorage.getItem(key));
+var STORAGE_KEY = 'project-checks';
+
+function fetchChecked(){
+  if(localStorage.getItem(STORAGE_KEY)){
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
   }
   return [];
 }
 
-function saveChecked(key, value){
-  localStorage.setItem(key, JSON.stringify(value));
+function saveChecked(completed){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
 }
 
 new Vue({
   el: '#app',
   data: {
-    completed: fetchChecked("project-check"),
+    completed: fetchChecked(),
     tasks: [
-      {
-        section: "Content",
-        items: [
-          {"name": "Spelling checked", "id": "spelling"},
-          {"name": "Placeholder content removed", "id": "placeholders"},
-          {"name": "Contact details correct", "id": "contact"},
-          {"name": "Logo links to index page", "id": "logo"},
-          {"name": "404 page exist", "id": "404"},
-          {"name": "All forms tested", "id": "forms"}, 
-          {"name": "Checked for broken links", "id": "links"}
-        ]
-      },
-      {
-        section: "Usability",
-        items: [
-          {"id": "screens", "name": "Check on screens"},
-          {"id": "spelling", "name": "Spelling"}
-        ]
-      },
-      {
-        section: "Design",
-        items: [
-          {"id": "consistency", "name": "Consistency"},
-          {"id": "colour", "name": "Colour"}
-        ]
-      }
+      {"name": "Spelling checked", "id": "spelling", "done": false},
+      {"name": "Placeholder content removed", "id": "placeholders", "done": false},
+      {"name": "Contact details correct", "id": "contact", "done": false}
     ]
   },
 
   computed: {
-    // 
+    remaining: function () {
+      return this.tasks.filter(function(tasks){
+        return ! tasks.done;
+      });
+    },
+    done: function () {
+      return this.tasks.filter(function(tasks){
+        return tasks.done;
+      });
+    }
+
   },
 
   methods: {
     resetChecked: function() {
-      this.completed = [];
+      this.tasks = [];
     }
   },
 
-  ready: function(){
-    this.$watch("completed", function(value){
-      saveChecked("project-check", value);
-    });
+  watch: {
+    tasks: {
+      handler: function (tasks) {
+        saveChecked(tasks);
+      },
+      deep: true
+    }
+  },
+
+  ready: function() {
+    this.tasks = this.completed;
   }
 
 });
