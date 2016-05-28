@@ -13,33 +13,62 @@ function saveChecked(completed){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
 }
 
+// var filters = {
+//   remaining: function (items) {
+//     return items.filter(function(items) {
+//       return !items.done;
+//     });
+//   }
+// };
+
+Vue.filter('remaining', function (items) {
+  return items.filter(function(items) {
+      return !items.done;
+  });
+});
+Vue.filter('completed', function (items) {
+  return items.filter(function(items) {
+      return items.done;
+  });
+});
+Vue.filter('count', function (value) {
+  return value.length;
+});
+
 new Vue({
   el: '#app',
   data: {
     completed: fetchChecked(),
     tasks: [
-      {"name": "Spelling checked", "id": "spelling", "done": false},
-      {"name": "Placeholder content removed", "id": "placeholders", "done": false},
-      {"name": "Contact details correct", "id": "contact", "done": false}
+      {
+        name: "Content",
+        items: [
+          {"name": "Spelling checked", "id": "spelling", "done": false},
+          {"name": "Placeholder content removed", "id": "placeholders", "done": false},
+          {"name": "Contact details correct", "id": "contact", "done": false}
+        ]
+      },
+      {
+        name: "Usability",
+        items: [
+          {"id": "screens", "name": "Check on screens", "done": false},
+          {"id": "spelling", "name": "Spelling", "done": false}
+        ]
+      }
     ]
   },
 
   computed: {
-    remaining: function () {
-      return this.tasks.filter(function(tasks){
-        return ! tasks.done;
-      });
-    },
-    done: function () {
-      return this.tasks.filter(function(tasks){
-        return tasks.done;
-      });
-    }
+    //
   },
 
   methods: {
     resetChecked: function() {
-      this.tasks = [];
+      this.tasks.forEach(function (task) {
+        task.items.forEach(function (item) {
+          item.done = false;
+        });
+      });
     }
   },
 
