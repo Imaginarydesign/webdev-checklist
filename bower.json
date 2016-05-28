@@ -4,7 +4,9 @@
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
-    "vue": "^1.0.24"
+    "vue": "^1.0.24",
+    "font-awesome": "fontawesome#^4.6.3",
+    "awesome-bootstrap-checkbox": "^0.3.7"
   },
   "overrides": {
     "bootstrap-sass": {

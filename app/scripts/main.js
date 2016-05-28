@@ -27,7 +27,7 @@ Vue.filter('count', function (value) {
   if (value.length == 0) {
     return '<span class="label label-success">All done</span>';
   } else {
-    return '<span class="badge">' + value.length + '</span>';
+    return '<span class="badge">' + value.length + ' Remaining</span>';
   }
 });
 
@@ -40,9 +40,9 @@ new Vue({
       {
         name: "Content",
         items: [
-          {"name": "Spelling checked", "id": "spelling", "done": false},
-          {"name": "Placeholder content removed", "id": "placeholders", "done": false},
-          {"name": "Contact details correct", "id": "contact", "done": false}
+          {"name": "Spelling checked", "id": "spelling-checked", "done": false},
+          {"name": "Placeholder content removed", "id": "placeholders-removed", "done": false},
+          {"name": "Contact details correct", "id": "contact-checked", "done": false}
         ]
       },
       {

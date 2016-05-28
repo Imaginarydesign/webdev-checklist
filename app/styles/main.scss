@@ -1,7 +1,10 @@
 $icon-font-path: '../fonts/';
+$fa-font-path: "../bower_components/font-awesome/fonts";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/font-awesome/scss/font-awesome.scss";
+@import "bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
 // endbower
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
@@ -26,7 +29,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .lead, .section-heading {
-  color: #00C58D;
+  // color: #00C58D;
 }
 
 .section-heading {
@@ -37,6 +40,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 20px;
   padding-top: 20px;
+  h4 {
+    font-weight: 500;
+  }
 }
 
 .panel {
@@ -137,5 +143,10 @@ li.ui-state-default.done label {
 }
 .label-success {
   background-color: #00C58D;
+}
+
+.checkbox-success input[type="checkbox"]:checked + label::before, .checkbox-success input[type="radio"]:checked + label::before {
+  background-color: #00C58D;
+  border-color: #00C58D;
 }
 

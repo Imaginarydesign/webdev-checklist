@@ -11,6 +11,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -51,9 +52,10 @@
                 </div>
                 <ul class="list-unstyled panel-collapse collapse" v-bind:class="{ 'in': $index == 0 }" id="collapse-{{ $index }}">
                   <li class="ui-state-default" v-bind:class="{ 'done': item.done == true, 'todo': item.done == false }" v-for="item in task.items">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" v-model="item.done">{{ item.name }}
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox-{{ item.id }}" v-model="item.done">
+                      <label for="checkbox-{{ item.id }}">
+                        {{ item.name }}
                       </label>
                     </div>
                   </li>
