@@ -41,8 +41,8 @@
             <div class="panel-body">
               <div class="panel-section" v-for="task in tasks">
                 <div class="section-heading clearfix" >
-                  <h4 class="pull-left">{{ task.name }} 
-                    <span class="badge">{{ task.items | remaining | count }}</span>
+                  <h4 class="pull-left">{{ task.name }}
+                    {{{ task.items | remaining | count }}}
                   </h4>
                   <!-- <small class="text-muted task-meta">Completed: {{ task.items | completed | count }}, Remaining: {{ task.items | remaining | count }}</small> -->
                   <div class="pull-right box-tools">

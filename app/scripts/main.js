@@ -25,9 +25,9 @@ Vue.filter('completed', function (items) {
 });
 Vue.filter('count', function (value) {
   if (value.length == 0) {
-    return 'All Done';
+    return '<span class="label label-success">All done</span>';
   } else {
-    return value.length;
+    return '<span class="badge">' + value.length + '</span>';
   }
 });
 
