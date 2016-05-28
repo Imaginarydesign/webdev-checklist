@@ -1,5 +1,5 @@
 $icon-font-path: '../fonts/';
-$fa-font-path: "../bower_components/font-awesome/fonts";
+// $fa-font-path: "../bower_components/font-awesome/fonts";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -142,6 +142,10 @@ li.ui-state-default.done label {
   font-weight: inherit;
 }
 .label-success {
+  background-color: #00C58D;
+}
+
+.badge-success {
   background-color: #00C58D;
 }
 

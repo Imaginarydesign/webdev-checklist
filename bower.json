@@ -15,7 +15,13 @@
         "assets/fonts/bootstrap/*",
         "assets/javascripts/bootstrap.js"
       ]
-    }
+    },
+    "font-awesome": {
+      "main": [ 
+        "./scss/font-awesome.scss", 
+        "./fonts/*" 
+      ] 
+    } 
   },
   "devDependencies": {
     "chai": "^3.5.0",

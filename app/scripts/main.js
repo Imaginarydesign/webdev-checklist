@@ -1,3 +1,5 @@
+'use strict';
+
 Vue.config.debug = true;
 
 var STORAGE_KEY = 'project-checks';
@@ -24,8 +26,8 @@ Vue.filter('completed', function (items) {
   });
 });
 Vue.filter('count', function (value) {
-  if (value.length == 0) {
-    return '<span class="label label-success">All done</span>';
+  if (value.length === 0) {
+    return '<span class="badge badge-success">All done</span>';
   } else {
     return '<span class="badge">' + value.length + ' Remaining</span>';
   }
@@ -38,18 +40,18 @@ new Vue({
     remainingCount: '',
     tasks: [
       {
-        name: "Content",
+        name: 'Content',
         items: [
-          {"name": "Spelling checked", "id": "spelling-checked", "done": false},
-          {"name": "Placeholder content removed", "id": "placeholders-removed", "done": false},
-          {"name": "Contact details correct", "id": "contact-checked", "done": false}
+          {name: 'Spelling checked', id: 'spelling-checked', done: false},
+          {name: 'Placeholder content removed', id: 'placeholders-removed', done: false},
+          {name: 'Contact details correct', id: 'contact-checked', done: false}
         ]
       },
       {
-        name: "Usability",
+        name: 'Usability',
         items: [
-          {"id": "screens", "name": "Check on screens", "done": false},
-          {"id": "spelling", "name": "Spelling", "done": false}
+          {id: 'screens', name: 'Check on screens', done: false},
+          {id: 'spelling', name: 'Spelling', done: false}
         ]
       }
     ]
@@ -82,7 +84,6 @@ new Vue({
     if (this.completed.length) {
       this.tasks = this.completed;
     }
-    
   }
 
 });

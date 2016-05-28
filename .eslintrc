@@ -1,9 +1,11 @@
 {
   "globals": {
-    "Vue": true
+    "Vue": true,
+    "$": true
   },
   "rules": {
-    "no-new": 0
+    "no-new": 0,
+    "no-shadow": 0
   }
 
 }
