@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .lead, .section-heading {
-  color: #777777;
+  color: #00C58D;
 }
 
 .section-heading {
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background-color: transparent;
 }
 .task-meta {
-    color: #d9dbdc;
+    // color: #d9dbdc;
 }
 // Todolist styling
 li.ui-state-default {
@@ -74,6 +74,10 @@ li.ui-state-default {
   margin-right: -25px;
   padding-right: 25px;
   color: #777777;
+}
+li.ui-state-default.done label {
+  text-decoration: line-through;
+  color: #d9dbdc;
 }
 
 .panel-section:last-child li:last-of-type {

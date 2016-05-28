@@ -47,8 +47,8 @@
                   <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                 </div>
               </h4>
-              <ul class="list-unstyled panel-collapse collapse" id="collapse-{{ $index }}">
-                <li class="ui-state-default" v-for="item in task.items">
+              <ul class="list-unstyled panel-collapse collapse" v-bind:class="{ 'in': $index == 0 }" id="collapse-{{ $index }}">
+                <li class="ui-state-default" v-bind:class="{ 'done': item.done == true, 'todo': item.done == false }" v-for="item in task.items">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox" v-model="item.done">{{ item.name }}
