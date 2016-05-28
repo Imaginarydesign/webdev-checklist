@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   padding-right: 25px;
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 20px;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .panel {
@@ -80,6 +80,10 @@ li.ui-state-default.done label {
   color: #d9dbdc;
 }
 
+.panel-section ul {
+  margin-bottom: 0;
+}
+
 .panel-section:last-child li:last-of-type {
   border-bottom: none;
 }
@@ -88,7 +92,7 @@ li.ui-state-default.done label {
 }
 
 .collapsing {
-  margin-top: -10px;
+  // margin-top: -10px;
 }
 
 .browserupgrade {
@@ -117,7 +121,7 @@ li.ui-state-default.done label {
   background: transparent;
   box-shadow: none !important;
   color: #97a0b3;
-  margin-top: -15px;
+  margin-top: 5px;
 }
 .btn:focus {
   outline: none !important;

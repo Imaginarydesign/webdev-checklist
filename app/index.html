@@ -31,58 +31,46 @@
       
         <div id="app">
 
-        <div class="panel panel-default">
+          <div class="panel panel-default">
 
-          <div class="panel-heading">
-            <h2>Project checklist</h2>
-            <p class="text-muted">Webdesigner checklist with persistant storage</p>
-          </div>
+            <div class="panel-heading">
+              <h2>Project checklist</h2>
+              <p class="text-muted">Webdesigner checklist with persistant storage</p>
+            </div><!-- /.panel-heading -->
 
-          <div class="panel-body">
-            
-            <div class="panel-section" v-for="task in tasks">
-              <h4 class="section-heading" >{{ task.name }}<br/>
-                <small class="text-muted task-meta">Completed: {{ task.items | completed | count }}, Remaining: {{ task.items | remaining | count }}</small>
-                <div class="pull-right box-tools">
-                  <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                </div>
-              </h4>
-              <ul class="list-unstyled panel-collapse collapse" v-bind:class="{ 'in': $index == 0 }" id="collapse-{{ $index }}">
-                <li class="ui-state-default" v-bind:class="{ 'done': item.done == true, 'todo': item.done == false }" v-for="item in task.items">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" v-model="item.done">{{ item.name }}
-                    </label>
+            <div class="panel-body">
+              <div class="panel-section" v-for="task in tasks">
+                <div class="section-heading clearfix" >
+                  <h4 class="pull-left">{{ task.name }} 
+                    <span class="badge">{{ task.items | remaining | count }}</span>
+                  </h4>
+                  <!-- <small class="text-muted task-meta">Completed: {{ task.items | completed | count }}, Remaining: {{ task.items | remaining | count }}</small> -->
+                  <div class="pull-right box-tools">
+                    <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}"><span class="glyphicon" v-bind:class="{ 'glyphicon-minus': $index == 0, 'glyphicon-plus': $index > 0 }" aria-hidden="true"></span></button>
                   </div>
-                </li>
-              </ul>
-            </div>
+                </div>
+                <ul class="list-unstyled panel-collapse collapse" v-bind:class="{ 'in': $index == 0 }" id="collapse-{{ $index }}">
+                  <li class="ui-state-default" v-bind:class="{ 'done': item.done == true, 'todo': item.done == false }" v-for="item in task.items">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" v-model="item.done">{{ item.name }}
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div><!-- /.panel-body -->
 
-          </div>
+            <div class="panel-footer clearfix">
+              <span class="pull-left text-muted">♥ from <a href="http://imaginarydesign.co.uk/" target="_blank">Adam</a></span>
+              <button class="btn btn-sm btn-default pull-right" v-on:click="resetChecked" id="resetChecked">Reset</button>
+            </div><!-- /.panel-footer -->
 
-          
-
-          <div class="panel-footer clearfix">
-            <span class="pull-left text-muted">♥ from <a href="http://imaginarydesign.co.uk/" target="_blank">Adam</a></span>
-            <button class="btn btn-sm btn-default pull-right" v-on:click="resetChecked" id="resetChecked">Reset</button>
-          </div>
-
-        </div>
-
-
-        
-
-
-
-
-
+          </div><!-- /.panel -->
 
         </div><!-- /#app -->
 
       </div><!-- /.container -->
-
-      
-
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

@@ -13,14 +13,6 @@ function saveChecked(completed){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
 }
 
-// var filters = {
-//   remaining: function (items) {
-//     return items.filter(function(items) {
-//       return !items.done;
-//     });
-//   }
-// };
-
 Vue.filter('remaining', function (items) {
   return items.filter(function(items) {
       return !items.done;
@@ -32,13 +24,18 @@ Vue.filter('completed', function (items) {
   });
 });
 Vue.filter('count', function (value) {
-  return value.length;
+  if (value.length == 0) {
+    return 'All Done';
+  } else {
+    return value.length;
+  }
 });
 
 new Vue({
   el: '#app',
   data: {
     completed: fetchChecked(),
+    remainingCount: '',
     tasks: [
       {
         name: "Content",
@@ -90,7 +87,9 @@ new Vue({
 
 });
 
-// Collapse panels
-$('.btn-box-tool').click(function(){
-  $(this).find('span').toggleClass('glyphicon-minus glyphicon-plus');
+$(function() {
+  // Collapse panels
+  $('.btn-box-tool').click(function(){
+    $(this).find('span').toggleClass('glyphicon-minus glyphicon-plus');
+  });
 });
