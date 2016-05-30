@@ -47,10 +47,12 @@
                   </h4>
                   <!-- <small class="text-muted task-meta">Completed: {{ task.items | completed | count }}, Remaining: {{ task.items | remaining | count }}</small> -->
                   <div class="pull-right box-tools">
-                    <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}"><span class="glyphicon" v-bind:class="{ 'glyphicon-minus': $index == 0, 'glyphicon-plus': $index > 0 }" aria-hidden="true"></span></button>
+                    <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                   </div>
                 </div>
-                <ul class="list-unstyled panel-collapse collapse" v-bind:class="{ 'in': $index == 0 }" id="collapse-{{ $index }}">
+                <!-- Make the first section open -->
+                <!-- <ul class="list-unstyled panel-collapse collapse" v-bind:class="{ 'in': $index == 0 }" id="collapse-{{ $index }}"> -->
+                <ul class="list-unstyled panel-collapse collapse" id="collapse-{{ $index }}">
                   <li class="ui-state-default" v-bind:class="{ 'done': item.done == true, 'todo': item.done == false }" v-for="item in task.items">
                     <div class="checkbox checkbox-success">
                       <input type="checkbox" id="checkbox-{{ item.id }}" v-model="item.done">
