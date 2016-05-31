@@ -1,8 +1,8 @@
 # Webdesigner's checklist
 
-Discover the cost of your commute
+Webdesigner's checklist app, built with Vue.js and persistant storage.
 
-![Webdesigner's checklist](https://github.com/Imaginarydesign/web-check/raw/master/image.png)
+![Webdesigner's checklist](https://github.com/Imaginarydesign/web-check/raw/master/preview.gif)
 
 ## Preview
 
