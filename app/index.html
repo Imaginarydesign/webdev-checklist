@@ -36,19 +36,35 @@
 
             <div class="panel-heading">
               <h2>Project checklist</h2>
-              <p class="text-muted">Webdesigner checklist with persistant storage</p>
+              <p class="text-muted">Webdesigner's checklist with persistant storage</p>
             </div><!-- /.panel-heading -->
 
             <div class="panel-body">
               <div class="panel-section" v-for="task in tasks">
                 <div class="section-heading clearfix" >
-                  <h4 class="pull-left">{{ task.name }}
-                    {{{ task.items | remaining | count }}}
-                  </h4>
-                  <!-- <small class="text-muted task-meta">Completed: {{ task.items | completed | count }}, Remaining: {{ task.items | remaining | count }}</small> -->
-                  <div class="pull-right box-tools">
-                    <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                  
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <h4>{{ task.name }}</h4>
+                      <p>{{ task.items | remaining | count}}</p>
+                    </div>
+
+                    <div class="col-xs-6">
+                      <div class="progress pull-right hidden-xs">
+                        <div class="progress-label">Progress</div>
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ task.items | remaining | percentage task.items }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ task.items | remaining | percentage task.items }}%;">
+                          {{ task.items | remaining | percentage task.items }}%
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-2">
+                      <div class="pull-right box-tools">
+                        <button class="btn btn-box-tool" data-toggle="collapse" data-target="#collapse-{{ $index }}" title="Show Tasks"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                      </div>
+                    </div>
                   </div>
+                  
                 </div>
                 <!-- Make the first section open -->
                 <!-- <ul class="list-unstyled panel-collapse collapse" v-bind:class="{ 'in': $index == 0 }" id="collapse-{{ $index }}"> -->

@@ -27,17 +27,25 @@ Vue.filter('completed', function (items) {
 });
 Vue.filter('count', function (value) {
   if (value.length === 0) {
-    return '<span class="badge badge-success">All done</span>';
+    return 'All done! Good Job';
   } else {
-    return '<span class="badge">' + value.length + ' Remaining</span>';
+    if (value.length === 1) {
+      return value.length + ' Task Remaining';
+    } else {
+      return value.length + ' Tasks Remaining';
+    }
   }
+});
+Vue.filter('percentage', function (value, total) {
+  var percentageRemaining = (value.length / total.length * 100).toFixed();
+  var percentageCompleted = 100 - percentageRemaining
+  return percentageCompleted;
 });
 
 new Vue({
   el: '#app',
   data: {
     completed: fetchChecked(),
-    remainingCount: '',
     tasks: [
       {
         name: 'Content',
@@ -168,8 +176,13 @@ new Vue({
 });
 
 $(function() {
-  // Collapse panels
   $('.btn-box-tool').click(function(){
     $(this).find('span').toggleClass('glyphicon-minus glyphicon-plus');
+    $(this).tooltip('destroy');
+  });
+  $('.btn-box-tool').mouseenter(function(){
+    if($(this).find('span').hasClass('glyphicon-plus')) {
+      $(this).tooltip('show');  
+    } 
   });
 });

@@ -112,7 +112,7 @@ li.ui-state-default.done label {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 550px;
+    max-width: 650px;
   }
 }
 
@@ -128,7 +128,7 @@ li.ui-state-default.done label {
   background: transparent;
   box-shadow: none !important;
   color: #97a0b3;
-  margin-top: 5px;
+  margin-top: 23px;
 }
 .btn:focus {
   outline: none !important;
@@ -159,5 +159,15 @@ li.ui-state-default.done label {
 .checkbox-success input[type="checkbox"]:checked + label::before, .checkbox-success input[type="radio"]:checked + label::before {
   background-color: #00C58D;
   border-color: #00C58D;
+}
+
+.progress {
+  min-width: 240px;
+  margin-top: 32px;
+  margin-left: 15px;
+}
+.progress-label {
+  position: absolute;
+  top: 8px;
 }
 
