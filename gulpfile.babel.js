@@ -1,12 +1,19 @@
-// generated on 2016-05-18 using generator-gulp-webapp 1.0.3
+  // generated on 2016-05-18 using generator-gulp-webapp 1.0.3
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
+// import ghpages from 'gulp-gh-pages';
+var ghPages = require('gulp-gh-pages');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
