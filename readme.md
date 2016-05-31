@@ -1,6 +1,6 @@
-# Webdesigner's checklist
+# Web designer's checklist
 
-Webdesigner's checklist app, built with Vue.js and persistant storage.
+Web designer's checklist app. Built with Vue.js and persistant storage.
 
 ![Webdesigner's checklist](https://github.com/Imaginarydesign/webdev-checklist/raw/master/preview.gif)
 
