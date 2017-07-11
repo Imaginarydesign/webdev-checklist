@@ -52,7 +52,7 @@ new Vue({
         items: [
           {'id': 'spelling-checked', 'name': 'Spelling checked', 'done': false},
           {'id': 'placeholders-removed', 'name': 'Placeholder content removed', 'done': false},
-          {'id': 'deteails-correct', 'name': 'Contact details correct', 'done': false},
+          {'id': 'details-correct', 'name': 'Contact details correct', 'done': false},
           {'id': 'logo-link', 'name': 'Logo links to index page', 'done': false},
           {'id': '404', 'name': '404 page exist', 'done': false},
           {'id': 'forms-tested', 'name': 'All forms tested', 'done': false},
